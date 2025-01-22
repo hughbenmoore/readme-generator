@@ -29,10 +29,28 @@ const questions = [
         type: "input",
         name: "installation",
         message: "What are your installation instructions?",
-    }
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "What is your usage information?"
+    },
+    {
+        type: "input",
+        name: "license",
+        message: "What is your license?"
+    },
+    {
+        type: "input",
+        name: "contributing",
+        message: "What are your contribution guidelines?"
+    },
+    {
+        type: "input",
+        name: "tests",
+        message: "What are your test instructions?"
+    },
 ];
-
-//Have about 9 total questions
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -42,13 +60,10 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((responses)=> {
-        writeToFile("rmgenerator.md",generateMarkdown({...responses}))
+        writeToFile("README.md",generateMarkdown({...responses}));
+        console.log("Successfully created README.md");
     });
 }
 
 // Function call to initialize app
 init();
-
-
-//Generate markdwon file
-//In video, use index.js then show the readme
